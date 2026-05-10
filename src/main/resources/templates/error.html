@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragmentos :: head('Error - Colegio AEM')}"></head>
+
+<body class="bg-light">
+
+    <nav th:replace="~{fragmentos :: navbar}"></nav>
+
+    <div class="container text-center">
+        <div class="card shadow mt-5 mx-auto" style="max-width: 600px;">
+            <div class="card-body p-5">
+                <i class="bi bi-exclamation-triangle-fill text-warning" style="font-size: 5rem;"></i>
+
+                <h1 class="mt-3">Vaya... algo salio mal</h1>
+
+                <!-- Codigo de estado HTTP (404, 500, etc.) -->
+                <h3 class="text-muted">
+                    Error <span th:text="${status}">???</span>
+                </h3>
+
+                <!-- Mensaje de error si existe -->
+                <p class="lead" th:if="${error}" th:text="${error}">Mensaje de error</p>
+
+                <p>Lo sentimos, no hemos podido procesar tu peticion.</p>
+
+                <a href="/inicio" class="btn btn-primary mt-3">
+                    <i class="bi bi-house-fill"></i> Volver al inicio
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="~{fragmentos :: scripts}"></div>
+</body>
+</html>

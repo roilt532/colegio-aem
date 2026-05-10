@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragmentos :: head('Alta de alumno')}"></head>
+
+<body class="bg-light">
+
+    <nav th:replace="~{fragmentos :: navbar}"></nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <div class="card shadow">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="mb-0"><i class="bi bi-person-plus-fill"></i> Alta de alumno</h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- Formulario que envia POST a /altaAlumnos -->
+                        <!-- th:object enlaza el formulario con el objeto Alumno del modelo -->
+                        <form th:action="@{/altaAlumnos}" th:object="${alumno}" method="post">
+
+                            <div class="mb-3">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-control" th:field="*{nombre}" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Apellidos</label>
+                                <input type="text" class="form-control" th:field="*{apellidos}" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Curso</label>
+                                <input type="text" class="form-control" th:field="*{curso}"
+                                       placeholder="Ej: 1 DAW" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Nota media</label>
+                                <input type="number" step="0.01" min="0" max="10"
+                                       class="form-control" th:field="*{notaMedia}" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" th:field="*{email}" required>
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <a href="/listadoAlumnos" class="btn btn-secondary">Cancelar</a>
+                                <button type="submit" class="btn btn-success">
+                                    <i class="bi bi-check-lg"></i> Guardar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="~{fragmentos :: scripts}"></div>
+</body>
+</html>

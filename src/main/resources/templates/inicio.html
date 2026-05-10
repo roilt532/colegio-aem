@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Importa el head del fragmento, pasandole el titulo -->
+<head th:replace="~{fragmentos :: head('Inicio - Colegio AEM')}"></head>
+
+<body class="bg-light">
+
+    <!-- Importa el navbar -->
+    <nav th:replace="~{fragmentos :: navbar}"></nav>
+
+    <div class="container text-center">
+        <h1 class="mb-4">Pagina del Colegio de AEM</h1>
+
+        <!-- Avatar generico de usuario -->
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+             alt="Avatar"
+             class="rounded-circle shadow mb-4"
+             style="width: 200px; height: 200px;">
+
+        <p class="lead mb-4">Aplicacion de gestion de alumnos y asignaturas</p>
+
+        <!-- Botones con los enlaces principales -->
+        <div class="d-flex justify-content-center flex-wrap gap-2">
+            <a href="/listadoAlumnos" class="btn btn-info btn-lg">
+                <i class="bi bi-people-fill"></i> Listado de alumnos
+            </a>
+            <a href="/listadoAsignaturas" class="btn btn-info btn-lg">
+                <i class="bi bi-book-fill"></i> Listado de asignaturas
+            </a>
+            <a href="/altaAlumnos" class="btn btn-success btn-lg">
+                <i class="bi bi-person-plus-fill"></i> Alta de alumno
+            </a>
+            <a href="/altaAsignaturas" class="btn btn-success btn-lg">
+                <i class="bi bi-journal-plus"></i> Alta de asignatura
+            </a>
+        </div>
+    </div>
+
+    <!-- Importa los scripts JS de Bootstrap -->
+    <div th:replace="~{fragmentos :: scripts}"></div>
+</body>
+</html>

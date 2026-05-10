@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragmentos :: head('Alta de asignatura')}"></head>
+
+<body class="bg-light">
+
+    <nav th:replace="~{fragmentos :: navbar}"></nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <div class="card shadow">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="mb-0"><i class="bi bi-journal-plus"></i> Alta de asignatura</h3>
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/altaAsignaturas}" th:object="${asignatura}" method="post">
+
+                            <div class="mb-3">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-control" th:field="*{nombre}" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Curso</label>
+                                <input type="text" class="form-control" th:field="*{curso}"
+                                       placeholder="Ej: 1 DAW" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Tutor</label>
+                                <input type="text" class="form-control" th:field="*{tutor}" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Horas semanales</label>
+                                <input type="number" min="1" max="20"
+                                       class="form-control" th:field="*{horasSemanales}" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Creditos</label>
+                                <input type="number" min="1" max="30"
+                                       class="form-control" th:field="*{creditos}" required>
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <a href="/listadoAsignaturas" class="btn btn-secondary">Cancelar</a>
+                                <button type="submit" class="btn btn-success">
+                                    <i class="bi bi-check-lg"></i> Guardar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="~{fragmentos :: scripts}"></div>
+</body>
+</html>
