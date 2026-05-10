@@ -69,7 +69,7 @@ La aplicación está desplegada en Railway. Puedes acceder a la versión online 
 
 🔗 **[URL_DE_RAILWAY_PENDIENTE]**
 
-> *(Esta URL se actualizará cuando el despliegue esté listo)*
+https://colegio-aem-production.up.railway.app/inicio
 
 ## 🗺 Endpoints disponibles
 
